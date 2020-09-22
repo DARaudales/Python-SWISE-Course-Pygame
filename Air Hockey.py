@@ -60,4 +60,35 @@ all_sprites = pygame.sprite.Group()
 all_sprites.add(barra1, barra2, ball)
 
 
+# funcion para actualizar la pantalla
 
+def dibujar():
+    #pantalla negra
+    ganar.fill(negro)
+
+    #fuente de titulo
+    fuente = pygame.font.SysFont('Comic Sans MS', 30)
+    texto = fuente.render('AIR HOCKEY', False, blanco)
+    textRect = texto.get_rect()
+    textRect.center = (750 // 2, 25)
+    ganar.blit(texto, textRect)
+
+    # Player 1 Score
+    p1_score = fuente.render(str(barra1.points), False, blanco)
+    p1Rect = p1_score.get_rect()
+    p1Rect.center = (50, 50)
+    ganar.blit(p1_score, p1Rect)
+
+    # Player 2 Score
+    p2_score = fuente.render(str(barra2.points), False, blanco)
+    p2Rect = p2_score.get_rect()
+    p2Rect.center = (700, 50)
+    ganar.blit(p2_score, p2Rect)
+
+
+    all_sprites.draw(ganar)
+
+
+    pygame.display.update()
+
+run = True
